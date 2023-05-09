@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="262dp"
+            android:layout_height="69dp"
+            android:layout_marginBottom="4dp"
+            android:gravity="center|left"
+            android:text="text"
+            android:textColor="#000000"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/editable_tv"
+            android:layout_width="262dp"
+            android:layout_height="69dp"
+            android:layout_marginBottom="4dp"
+            android:gravity="center|left"
+            android:text="text"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/btnEdit"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="77dp"
+            android:layout_height="64dp"
+            android:text="編集"
+            android:textColorLink="#151414" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
