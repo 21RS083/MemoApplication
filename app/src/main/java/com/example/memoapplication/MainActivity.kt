@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        recyclerView = findViewById(R.id.rv)
+        recyclerView = findViewById(R.id.recyclerView)
         recyclerView.adapter = recyclerAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -71,12 +71,12 @@ class MainActivity : AppCompatActivity() {
         val btnAdd : Button = findViewById(R.id.btnAdd)
         //＋ボタン押したら
         btnAdd.setOnClickListener {
-            val et : EditText = findViewById(R.id.et)
-            val data =MemoData(et.text.toString())
+            val addText : EditText = findViewById(R.id.addText)
+            val data =MemoData(addText.text.toString())
             addList.add(data)
             recyclerAdapter.notifyItemInserted(addList.lastIndex)
 
-            et.text = null
+            addText.text = null
         }
 
         itemTouchHelper = ItemTouchHelper(getRecyclerViewSimpleCallBack())
