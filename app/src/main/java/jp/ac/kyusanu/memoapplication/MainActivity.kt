@@ -1,4 +1,4 @@
-package com.example.memoapplication
+package jp.ac.kyusanu.memoapplication
 
 import RecyclerAdapter
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +8,7 @@ import android.widget.EditText
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.memoapplication.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,11 +18,12 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var itemTouchHelper : ItemTouchHelper
 
-    fun getRecyclerViewSimpleCallBack()=
+    private fun getRecyclerViewSimpleCallBack()=
         object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN,
             ItemTouchHelper.LEFT) {
             //ドラッグしたら
             override fun onMove(
+
                 p0: RecyclerView,
                 p1: RecyclerView.ViewHolder,
                 p2: RecyclerView.ViewHolder
@@ -57,12 +59,9 @@ class MainActivity : AppCompatActivity() {
 
         //初期データ
         val intro= listOf(
-            MemoData("名前 : 千原泰護"),
-            MemoData("好きな食べ物 : ナッツ"),
-            MemoData("好きなFPS/TPSゲーム : Splatoon3"),
-            MemoData("好きなアクションゲーム : Sekiro"),
-            MemoData("好きなソシャゲ : アークナイツ"),
-            MemoData("好きなインディーゲーム : Slay the spire"),
+            MemoData("初期データ1"),
+            MemoData("初期データ2"),
+            MemoData("初期データ3"),
         )
         for (i in intro) {
             addList.add(i)
@@ -72,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         //＋ボタン押したら
         btnAdd.setOnClickListener {
             val addText : EditText = findViewById(R.id.addText)
-            val data =MemoData(addText.text.toString())
+            val data = MemoData(addText.text.toString())
             addList.add(data)
             recyclerAdapter.notifyItemInserted(addList.lastIndex)
 

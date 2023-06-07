@@ -1,4 +1,4 @@
-package com.example.memoapplication
+package jp.ac.kyusanu.memoapplication
 
 class getRecyclerViewSimpleCallBack {
 }

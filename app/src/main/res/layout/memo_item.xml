@@ -14,32 +14,34 @@
         android:padding="12dp">
 
         <TextView
-            android:id="@+id/tv"
+            android:id="@+id/memoContent"
             android:layout_width="262dp"
             android:layout_height="69dp"
             android:layout_marginBottom="4dp"
-            android:gravity="center|left"
-            android:text="text"
+            android:gravity="center|start"
+            android:text="@string/text1"
             android:textColor="#000000"
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/editable_tv"
+            android:id="@+id/memoEdit"
             android:layout_width="262dp"
             android:layout_height="69dp"
             android:layout_marginBottom="4dp"
-            android:gravity="center|left"
-            android:text="text"
+            android:gravity="center|start"
             android:textColor="#000000"
             android:textSize="24sp"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            android:hint="@string/text1"
+            android:inputType="text"
+            android:autofillHints=""/>
 
         <Button
-            android:id="@+id/btnEdit"
+            android:id="@+id/buttonEdit"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="77dp"
             android:layout_height="64dp"
-            android:text="編集"
+            android:text="@string/edit"
             android:textColorLink="#151414" />
     </LinearLayout>
 
