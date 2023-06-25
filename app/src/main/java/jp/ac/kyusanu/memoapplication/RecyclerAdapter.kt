@@ -11,8 +11,8 @@ import com.example.memoapplication.R
 class RecyclerAdapter(private val memoList:ArrayList<MemoData>) :RecyclerView.Adapter<RecyclerAdapter.ViewHolderItem>() {
 
     class ViewHolderItem(v:View) :RecyclerView.ViewHolder(v) {
-        val memoContent  : TextView = v.findViewById(R.id.memoContent)
-        private val memoEdit : EditText = v.findViewById(R.id.memoEdit)//←←←適切な変数名に
+        val memoContent  : TextView = v.findViewById(R.id.memoContent)//findViewByIdでビューにアクセスせず、View Bindingでアクセスする。
+        private val memoEdit : EditText = v.findViewById(R.id.memoEdit)
         private val buttonEdit : Button = v.findViewById(R.id.buttonEdit)
         //編集ボタン押したら編集モード
         init {
