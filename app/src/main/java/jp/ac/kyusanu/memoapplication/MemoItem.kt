@@ -1,5 +1,5 @@
 package jp.ac.kyusanu.memoapplication
 
-data class MemoData (
+data class MemoItem (
     val memo :String
 )

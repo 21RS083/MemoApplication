@@ -14,7 +14,7 @@
         android:padding="12dp">
 
         <TextView
-            android:id="@+id/memoContent"
+            android:id="@+id/memoTextView"
             android:layout_width="262dp"
             android:layout_height="69dp"
             android:layout_marginBottom="4dp"
@@ -24,7 +24,7 @@
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/memoEdit"
+            android:id="@+id/memoEditText"
             android:layout_width="262dp"
             android:layout_height="69dp"
             android:layout_marginBottom="4dp"

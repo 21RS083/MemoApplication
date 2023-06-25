@@ -3,16 +3,15 @@ package jp.ac.kyusanu.memoapplication
 import RecyclerAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.memoapplication.R
+import com.example.memoapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private var addList =ArrayList<MemoData>()
+    private lateinit var binding: ActivityMainBinding
+    private var addList =ArrayList<MemoItem>()
     private lateinit var recyclerView : RecyclerView
     private var recyclerAdapter = RecyclerAdapter(addList)
 
@@ -50,32 +49,31 @@ class MainActivity : AppCompatActivity() {
     //起動時
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        recyclerView = findViewById(R.id.recyclerView)
-        recyclerView.adapter = recyclerAdapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.adapter = recyclerAdapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
 
 
         //初期データ
         val intro= listOf(
-            MemoData("初期データ1"),
-            MemoData("初期データ2"),
-            MemoData("初期データ3"),
+            MemoItem("初期データ1"),
+            MemoItem("初期データ2"),
+            MemoItem("初期データ3"),
         )
         for (i in intro) {
             addList.add(i)
         }
 
-        val btnAdd : Button = findViewById(R.id.btnAdd)
         //＋ボタン押したら
-        btnAdd.setOnClickListener {
-            val addText : EditText = findViewById(R.id.addText)
-            val data = MemoData(addText.text.toString())
+        binding.btnAdd.setOnClickListener {
+            //val addText : EditText = findViewById(R.id.addText)
+            val data = MemoItem(binding.addText.text.toString())
             addList.add(data)
             recyclerAdapter.notifyItemInserted(addList.lastIndex)
 
-            addText.text = null
+            binding.addText.text = null
         }
 
         itemTouchHelper = ItemTouchHelper(getRecyclerViewSimpleCallBack())
