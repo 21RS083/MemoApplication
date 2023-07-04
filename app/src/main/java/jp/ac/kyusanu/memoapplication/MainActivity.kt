@@ -3,6 +3,8 @@ package jp.ac.kyusanu.memoapplication
 import RecyclerAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.WindowManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -65,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         //＋ボタン押したら
-        binding.btnAdd.setOnClickListener {
+        binding.buttonAdd.setOnClickListener {
             //val addText : EditText = findViewById(R.id.addText)
             val data = MemoItem(binding.addText.text.toString())
             addList.add(data)
@@ -77,5 +79,19 @@ class MainActivity : AppCompatActivity() {
         itemTouchHelper = ItemTouchHelper(getRecyclerViewSimpleCallBack())
         itemTouchHelper.attachToRecyclerView(binding.recyclerView)
 
+        val contentView = binding.root
+        contentView.viewTreeObserver.addOnGlobalLayoutListener {
+            val heightDiff = contentView.rootView.height - contentView.height
+            if (heightDiff > 100) { // キーボードの高さが100ピクセル以上の場合
+                binding.textBox.visibility = View.VISIBLE
+            } else {
+                binding.textBox.visibility = View.GONE
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
     }
 }

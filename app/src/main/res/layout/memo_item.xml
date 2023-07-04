@@ -16,45 +16,34 @@
 
         <TextView
             android:id="@+id/memoTextView"
-            android:layout_width="0dp"
-            android:layout_height="46dp"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:layout_marginStart="4dp"
             android:gravity="center|start"
             android:text="@string/text1"
             android:textColor="#000000"
+            android:visibility="gone"
             android:textSize="18sp"
-            android:padding="6dp"
-            android:background="@drawable/textbox_border"/>
+            android:padding="6dp"/>
 
         <EditText
             android:id="@+id/memoEditText"
-            android:layout_width="0dp"
-            android:layout_height="46dp"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:layout_marginStart="4dp"
             android:gravity="center|start"
+            android:minLines="1"
+            android:maxLines="10"
             android:textColor="#000000"
-            android:textSize="18sp"
-            android:visibility="gone"
+            android:textSize="20sp"
             android:hint="@string/text1"
             android:inputType="textMultiLine"
+            android:scrollbars="vertical"
             android:autofillHints=""
-            android:padding="6dp"
-            android:background="@drawable/textbox_border"/>
-
-
-        <ImageButton
-            android:id="@+id/buttonEdit"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="1dp"
-            android:background="@drawable/round_button_background"
-            android:contentDescription="@string/edit"
-            android:src="@drawable/ic_edit" />
+            android:padding="10dp"
+            />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
