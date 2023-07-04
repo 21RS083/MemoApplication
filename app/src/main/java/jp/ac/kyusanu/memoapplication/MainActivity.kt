@@ -12,7 +12,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private var addList =ArrayList<MemoItem>()
-    private lateinit var recyclerView : RecyclerView
     private var recyclerAdapter = RecyclerAdapter(addList)
 
     private lateinit var itemTouchHelper : ItemTouchHelper
@@ -77,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         itemTouchHelper = ItemTouchHelper(getRecyclerViewSimpleCallBack())
-        itemTouchHelper.attachToRecyclerView(recyclerView)
+        itemTouchHelper.attachToRecyclerView(binding.recyclerView)
 
     }
 }
