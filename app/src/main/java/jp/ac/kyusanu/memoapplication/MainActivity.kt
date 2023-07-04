@@ -54,7 +54,6 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerView.adapter = recyclerAdapter
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
 
-
         //初期データ
         val intro= listOf(
             MemoItem("初期データ1"),
