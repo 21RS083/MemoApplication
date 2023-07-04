@@ -1,12 +1,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <!-- 画面上部のメモ表示領域 -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_above="@+id/textBox"
         android:paddingBottom="8dp" />
@@ -22,12 +21,10 @@
         android:padding="8dp">
 
         <!-- テキスト入力ボックス -->
-
-        <!-- メモ追加ボタン -->
         <EditText
             android:id="@+id/addText"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/textbox_border"
             android:hint="@string/text1"
@@ -37,15 +34,16 @@
             android:inputType="textMultiLine"
             android:scrollbars="vertical"
             android:padding="8dp" />
-
+        <!-- メモ追加ボタン -->
         <ImageButton
             android:id="@+id/buttonAdd"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/round_button_background"
             android:contentDescription="@string/add"
-            android:src="@drawable/ic_send"
-            android:layout_marginTop="6dp"
-            android:layout_marginStart="4dp"/>
+            android:src="@drawable/ic_send" />
     </LinearLayout>
 </RelativeLayout>

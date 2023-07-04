@@ -1,9 +1,9 @@
 package jp.ac.kyusanu.memoapplication
 
 import RecyclerAdapter
+import android.graphics.Rect
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.view.WindowManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -66,9 +66,8 @@ class MainActivity : AppCompatActivity() {
             addList.add(i)
         }
 
-        //＋ボタン押したら
+        //addボタン押したら
         binding.buttonAdd.setOnClickListener {
-            //val addText : EditText = findViewById(R.id.addText)
             val data = MemoItem(binding.addText.text.toString())
             addList.add(data)
             recyclerAdapter.notifyItemInserted(addList.lastIndex)
@@ -79,19 +78,26 @@ class MainActivity : AppCompatActivity() {
         itemTouchHelper = ItemTouchHelper(getRecyclerViewSimpleCallBack())
         itemTouchHelper.attachToRecyclerView(binding.recyclerView)
 
-        val contentView = binding.root
-        contentView.viewTreeObserver.addOnGlobalLayoutListener {
-            val heightDiff = contentView.rootView.height - contentView.height
-            if (heightDiff > 100) { // キーボードの高さが100ピクセル以上の場合
-                binding.textBox.visibility = View.VISIBLE
-            } else {
-                binding.textBox.visibility = View.GONE
-            }
-        }
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
     }
 
+    //onResume :Activityがユーザによる操作を受け付ける直前に呼ばれる
     override fun onResume() {
         super.onResume()
-        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+        //キーボードが立ち上がったらテキストボックスも立ち上がる
+        binding.root.viewTreeObserver.addOnGlobalLayoutListener {
+            //キーボードで隠れていない可視部分を矩形として格納
+            val rect = Rect()
+            binding.root.getWindowVisibleDisplayFrame(rect)
+            //画面の高さと可視部分の情報からキーボードの高さを計算
+            val screenHeight = binding.root.rootView.height
+            val keypadHeight = screenHeight - rect.bottom
+            //キーボードの高さが画面の15%以上ならテキストボックスをキーボードの高さ分上に移動
+            if (keypadHeight > screenHeight * 0.15) {
+                binding.textBox.translationY = -keypadHeight.toFloat()
+            } else {
+                binding.textBox.translationY = 0f
+            }
+        }
     }
 }
