@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">MemoApplication</string>
-    <string name="edit">編集</string>
-    <string name="text1">text</string>
+    <string name="edit">edit</string>
+    <string name="add">add</string>
+    <string name="text1">メモを入力してください</string>
     <string name="plus">＋</string>
 </resources>

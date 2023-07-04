@@ -27,13 +27,11 @@ class RecyclerAdapter(private val memoList:ArrayList<MemoItem>) :RecyclerView.Ad
                     binding.memoTextView.text = editedText
                     binding.memoEditText.visibility = View.GONE
                     binding.memoTextView.visibility = View.VISIBLE
-                    binding.buttonEdit.text = "編集" // ボタンのテキストを「編集」に変更
                 } else {
                     // EditTextが非表示の場合、編集モードに切り替える
                     binding.memoEditText.setText(binding.memoTextView.text) // TextViewのテキストをEditTextに設定
                     binding.memoTextView.visibility = View.GONE
                     binding.memoEditText.visibility = View.VISIBLE
-                    binding.buttonEdit.text = "完了" // ボタンのテキストを「完了」に変更
                 }
             }
         }

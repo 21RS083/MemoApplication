@@ -15,13 +15,15 @@
 
         <TextView
             android:id="@+id/memoTextView"
-            android:layout_width="262dp"
-            android:layout_height="69dp"
+            android:layout_width="293dp"
+            android:layout_height="67dp"
             android:layout_marginBottom="4dp"
             android:gravity="center|start"
             android:text="@string/text1"
             android:textColor="#000000"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:padding="8dp"
+            android:background="@drawable/textbox_border"/>
 
         <EditText
             android:id="@+id/memoEditText"
@@ -34,15 +36,20 @@
             android:visibility="gone"
             android:hint="@string/text1"
             android:inputType="text"
-            android:autofillHints=""/>
+            android:autofillHints=""
+            android:padding="8dp"
+            android:background="@drawable/textbox_border"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/buttonEdit"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="77dp"
-            android:layout_height="64dp"
-            android:text="@string/edit"
-            android:textColorLink="#151414" />
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/round_button_background"
+            android:contentDescription="add"
+            android:src="@drawable/ic_edit"
+            />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
