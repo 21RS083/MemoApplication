@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
     //onResume :Activityがユーザによる操作を受け付ける直前に呼ばれる
     override fun onResume() {
         super.onResume()
-        //キーボードが立ち上がったらテキストボックスも立ち上がる
+        //レイアウトが変わる度処理：キーボードが立ち上がったらテキストボックスも立ち上がる
         binding.root.viewTreeObserver.addOnGlobalLayoutListener {
             //キーボードで隠れていない可視部分を矩形として格納
             val rect = Rect()
